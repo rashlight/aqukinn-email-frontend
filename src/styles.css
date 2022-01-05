@@ -1,0 +1,89 @@
+.EmailEditor-root {
+  background: beige;
+  border: 1px solid grey;
+  font-family: 'Helvetica', serif;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 0px;
+}
+
+.EmailEditor-editor {
+  cursor: text;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.EmailEditor-editor .public-DraftEditorPlaceholder-root,
+.EmailEditor-editor .public-DraftEditor-content {
+  margin: 0 -15px -15px;
+  padding: 15px;
+}
+
+.EmailEditor-editor .public-DraftEditor-content {
+  min-height: 100px;
+}
+
+.EmailEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+  display: none;
+}
+
+.DraftEditor-root {
+  border-bottom: 1px solid goldenrod;
+}
+
+.EmailEditor-editor .EmailEditor-blockquote {
+  border-left: 5px solid grey;
+  color: grey;
+  font-family: 'Helvetica', 'Roboto', serif;
+  margin: 16px 0;
+  padding: 10px 20px;
+}
+
+.EmailEditor-editor .public-DraftStyleDefault-pre {
+  background-color: burlywood;
+  color: black;
+  font-family: 'Courier New', 'Inconsolata', 'Menlo', 'Consolas', monospace;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.EmailEditor-header-controls, .EmailEditor-format-controls, .EmailEditor-inline-controls, .EmailEditor-feature-controls, 
+.EmailEditor-controls {
+  display: inline;
+  font-family: 'Consolas', sans-serif;
+  font-size: 16px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+#EmailEditor-seperator {
+  color: goldenrod;
+  font-family: 'Consolas', sans-serif;
+  font-size: 16px;
+}
+
+.EmailEditor-styleButton {
+  color: black;
+  cursor: pointer;
+  margin-right: 16px;
+  padding: 2px 0;
+  display: inline-block;
+}
+
+.EmailEditor-activeButton {
+  color: palevioletred;
+}
+
+#EmailEditor-featureButton {
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: 0;
+  margin: 10px 0px;
+  cursor: pointer;
+  box-shadow: 0px 1px 1px lightgray;
+  transition: ease background-color 250ms;
+}
+  
