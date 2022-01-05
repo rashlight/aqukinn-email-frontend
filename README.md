@@ -1,70 +1,62 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# aqukinn-email
+*A GUI email module for the Aqukinn discord bot ([https://github.com/j1nxie/Aqukinn](https://github.com/j1nxie/Aqukinn))*
 
-## Available Scripts
+#### ~ Releases can be found -> [here](https://github.com/rashlight/aqukinn-email/releases) <-
 
-In the project directory, you can run:
+## Build instruction
+Download this repository, install prequisites and start building:
 
-### `npm start`
+    git clone https://github.com/rashlight/aqukinn-email
+    cd aqukinn-email
+    npm install draft-js react react-dom styled-components draft-js-export-html
+    npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## General Usage
+Please refer to the Help & About button on the web app.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Configuration
+This application uses the SendGrid API to send emails to specified recipient(s).
+The module uses an ENV file in order to store data:
 
-### `npm test`
+    # RETRIEVE API KEY FROM SENDGRID
+	INSERT_API_KEY="<INSERT_API_KEY_HERE>"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	# THE INFORMATION TO FEED INTO THE API
+	EMAIL_TO=e1@d1.com, e2@sd2.net
+	EMAIL_FROM="hello@world.io"
+	SUBJECT="Sending emails is Fun"
+	TEXT="This is a sample message"
+	HTML="<strong>and easy to do anywhere, even with Node.js</strong>"
 
-### `npm run build`
+Description of these variables:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`INSERT_API_KEY`: The key provided by the SendGrid API. Please note that your account will need to pass the Single Sender Verification test.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`EMAIL_TO:` A list of emails to send to, seperated by comma
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`EMAIL_FROM`: A single email that associated with your SendGrid account
 
-### `npm run eject`
+`SUBJECT`: A **text-only** string of the email title
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`TEXT`: The body (content) of the email, **text-only**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`HTML`: The body of the email, in HTML representation (note that you are restricted in the features that you can add to your email frame)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If `TEXT` and `HTML` are specified, only `HTML` variable will be sent.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Contribution
+Supports, issues and help are welcome, provided that you follow the [Code Of Conduct](https://github.com/rashlight/aqukinn-email/blob/main/CODE_OF_CONDUCT.md).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licenses
+This program is licensed by [LGPL v2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+UI borrowed from [draft.js](https://github.com/facebook/draft-js)  ([MIT License](https://github.com/facebook/draft-js/blob/main/LICENSE))
 
-### Code Splitting
+Email implementation by [SendGrid](https://sendgrid.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Also use components from [draft-js-export-html](https://www.npmjs.com/package/draft-js-export-html) ([ISC License](https://github.com/sstur/draft-js-utils/blob/master/LICENSE)), [styled-components](https://www.npmjs.com/package/styled-components/v/4.1.3) ([MIT License](https://github.com/styled-components/styled-components/blob/main/LICENSE))
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
