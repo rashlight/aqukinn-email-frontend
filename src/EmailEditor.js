@@ -2,6 +2,7 @@ import React from 'react';
 import {Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import Styled from "styled-components";
 import {stateToHTML} from 'draft-js-export-html';
+
 import 'draft-js/dist/Draft.css';
 import './styles.css';
 import '../node_modules/draft-js/dist/Draft.css';
@@ -75,29 +76,25 @@ class EmailEditor extends React.Component {
     
   _send()
   { 
-    
     alert("will send something here...");
-    alert(process.env.REACT_APP_EMAIL_TO)
-    //var EMAIL_TO = process.env.EMAIL_TO.split(",")
+
     const msg = {
-      to: process.env.EMAIL_TO, // Change to your recipient
-      from: process.env.EMAIL_FROM, // Change to your verified sender
-      subject: process.env.SUBJECT,
-      text: process.env.TEXT,
-      html: process.env.HTML,
+      api_key: process.env.REACT_APP_INSERT_API_KEY,
+      to: process.env.REACT_APP_EMAIL_TO.split(","), // Change to your recipient
+      from: process.env.REACT_APP_EMAIL_FROM, // Change to your verified sender
+      subject: process.env.REACT_APP_SUBJECT,
+      text: process.env.REACT_APP_TEXT,
+      html: process.env.REACT_APP_HTML,
     }
+
     let api = require("./EmailApi");
     api.send_emails(msg);
-  
-    
-    
   }
 
   // Maybe set DEFAULT_EMAIL as an env var?
   _sendTo(email)
   {
     alert("will send somewhere here...");
-   
   }
 
   _checkQuota()
