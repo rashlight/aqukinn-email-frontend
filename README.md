@@ -9,9 +9,7 @@ Download this repository, install prequisites and start building:
 
     git clone https://github.com/rashlight/aqukinn-email
     cd aqukinn-email
-    npm install draft-js react react-dom styled-components draft-js-export-html
-	npm install @sendgrid/mail
-	npm install dotenv
+    npm install draft-js react react-dom styled-components draft-js-export-html dotenv @sendgrid/mail path-browserify os-browserify
     npm start
 
 ## General Usage
