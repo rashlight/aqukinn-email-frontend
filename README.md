@@ -4,47 +4,16 @@
 
 #### ~ Releases can be found -> [here](https://github.com/rashlight/aqukinn-email/releases) <-
 
-## Build instruction
+## Build Instruction
 Download this repository, install prequisites and start building:
 
     git clone https://github.com/rashlight/aqukinn-email
     cd aqukinn-email
-    npm install draft-js react react-dom react-app-rewired styled-components draft-js-export-html dotenv @sendgrid/mail path-browserify os-browserify
+    npm install draft-js react react-dom draft-js-export-html styled-components
     npm start
 
 ## General Usage
 Please refer to the Help & About button on the web app.
-
-## Configuration
-This application uses the SendGrid API to send emails to specified recipient(s).
-The module uses an ENV file in order to store data:
-
-    # RETRIEVE API KEY FROM SENDGRID
-	INSERT_API_KEY="<INSERT_API_KEY_HERE>"
-
-	# THE INFORMATION TO FEED INTO THE API
-	EMAIL_TO=e1@d1.com, e2@sd2.net
-	EMAIL_FROM="hello@world.io"
-	SUBJECT="Sending emails is Fun"
-	TEXT="This is a sample message"
-	HTML="<strong>and easy to do anywhere, even with Node.js</strong>"
-
-Description of these variables:
-
-`INSERT_API_KEY`: The key provided by the SendGrid API. Please note that your account will need to pass the Single Sender Verification test.
-
-`EMAIL_TO:` A list of emails to send to, seperated by comma
-
-`EMAIL_FROM`: A single email that associated with your SendGrid account
-
-`SUBJECT`: A **text-only** string of the email title
-
-`TEXT`: The body (content) of the email, **text-only**
-
-`HTML`: The body of the email, in HTML representation (note that you are restricted in the features that you can add to your email frame)
-
-If `TEXT` and `HTML` are specified, only `HTML` variable will be sent.
-
 
 ## Contribution
 Supports, issues and help are welcome, provided that you follow the [Code Of Conduct](https://github.com/rashlight/aqukinn-email/blob/main/CODE_OF_CONDUCT.md).

@@ -6,8 +6,6 @@ import {stateToHTML} from 'draft-js-export-html';
 import 'draft-js/dist/Draft.css';
 import './styles.css';
 import '../node_modules/draft-js/dist/Draft.css';
-// import {msg} from './EmailApi';
-
 
 class EmailEditor extends React.Component {
   constructor(props) {
@@ -26,6 +24,7 @@ class EmailEditor extends React.Component {
     this.sendTo = this._sendTo.bind(this);
     this.checkQuota = this._checkQuota.bind(this);
     this.getHTML = this._getHTML.bind(this);
+    this.displayHTML = this._displayHTML.bind(this);
     this.displayHelp = this._displayHelp.bind(this);
   }
 
@@ -76,46 +75,41 @@ class EmailEditor extends React.Component {
     
   _send()
   { 
-    alert("will send something here...");
-
-    const msg = {
-      api_key: process.env.REACT_APP_INSERT_API_KEY,
-      to: process.env.REACT_APP_EMAIL_TO.split(","), // Change to your recipient
-      from: process.env.REACT_APP_EMAIL_FROM, // Change to your verified sender
-      subject: process.env.REACT_APP_SUBJECT,
-      text: process.env.REACT_APP_TEXT,
-      html: process.env.REACT_APP_HTML,
-    }
-
-    let api = require("./EmailApi");
-    api.send_emails(msg);
+    let api = require("./EmailAPI");
+    api.send_emails(this.getHTML());
   }
 
   // Maybe set DEFAULT_EMAIL as an env var?
   _sendTo(email)
   {
-    alert("will send somewhere here...");
+    let ans = prompt("Please, enter the addresses you would like to send, seperated by commas.\nE.g: m1@a1.com, m2@a2.net, ...").split(',');
+    let api = require("./EmailAPI");
+    api.send_custom(ans, this.getHTML())
   }
 
   _checkQuota()
   {
-    alert("you have <todo> emails left");
+    let api = require("./EmailAPI");
+    api.get_quota();
   }
 
   _getHTML() {
     let html = stateToHTML(this.state.editorState.getCurrentContent());
-    alert(html);
+    return html; 
   }
-   
+
+  _displayHTML() {
+    alert(this.getHTML());
+  }
 
   _displayHelp() {
     let helpString = "Aqukinn mail editor - @rashlight, Ph1eu and UCC\n" + 
     "Common tasks:\n" +
-    " - Ctrl + [b/i/u/m]: Toggle formatting\n" + 
-    " - Send: send a FORMATTED mail to the recipient\n" + 
-    " - Send to: Like Send, but to an email not in ENV file\n" + 
+    " - Ctrl + [b/i/u]: Toggle formatting\n" + 
+    " - Send: Send this mail to the default recipients\n" + 
+    " - Send to: Like Send, but to specified email(s)\n" + 
     " - Check Quota: Get the remaining mail that this account can send\n" + 
-    "More options can be changed in ENV file, for help please see the GitHub repository.";
+    "For help and resources, please see the GitHub repository.";
 
     alert(helpString);
   }
@@ -172,7 +166,7 @@ class EmailEditor extends React.Component {
           <span>&ensp;</span>
           <Button id="EmailEditor-featureButton" onClick={this.checkQuota}>Check Quota...</Button>
           <span>&ensp;</span>
-          <Button id="EmailEditor-featureButton" onClick={this.getHTML}>Show HTML...</Button>
+          <Button id="EmailEditor-featureButton" onClick={this.displayHTML}>Show HTML...</Button>
           <span>&ensp;</span>
           <Button id="EmailEditor-featureButton" onClick={this.displayHelp}>Help & About...</Button>
         </div>
