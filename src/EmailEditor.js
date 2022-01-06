@@ -5,6 +5,8 @@ import {stateToHTML} from 'draft-js-export-html';
 import 'draft-js/dist/Draft.css';
 import './styles.css';
 import '../node_modules/draft-js/dist/Draft.css';
+// import {msg} from './EmailApi';
+
 
 class EmailEditor extends React.Component {
   constructor(props) {
@@ -67,18 +69,35 @@ class EmailEditor extends React.Component {
       )
     );
   }
+  
 
   // BEGIN OF TODOS
     
   _send()
-  {
+  { 
+    
     alert("will send something here...");
+    alert(process.env.REACT_APP_EMAIL_TO)
+    //var EMAIL_TO = process.env.EMAIL_TO.split(",")
+    const msg = {
+      to: process.env.EMAIL_TO, // Change to your recipient
+      from: process.env.EMAIL_FROM, // Change to your verified sender
+      subject: process.env.SUBJECT,
+      text: process.env.TEXT,
+      html: process.env.HTML,
+    }
+    let api = require("./EmailApi");
+    api.send_emails(msg);
+  
+    
+    
   }
 
   // Maybe set DEFAULT_EMAIL as an env var?
   _sendTo(email)
   {
     alert("will send somewhere here...");
+   
   }
 
   _checkQuota()
@@ -90,6 +109,7 @@ class EmailEditor extends React.Component {
     let html = stateToHTML(this.state.editorState.getCurrentContent());
     alert(html);
   }
+   
 
   _displayHelp() {
     let helpString = "Aqukinn mail editor - @rashlight, Ph1eu and UCC\n" + 
