@@ -9,7 +9,7 @@ function send_custom(reciever, msg)
 
 function get_quota()
 {
-  alert("you have <todo> emails left");;
+  alert("you have <todo> emails left");
 }
 
 module.exports = {
