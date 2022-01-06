@@ -70,9 +70,6 @@ class EmailEditor extends React.Component {
     );
   }
   
-
-  // BEGIN OF TODOS
-    
   _send()
   { 
     let api = require("./EmailAPI");
@@ -113,8 +110,6 @@ class EmailEditor extends React.Component {
 
     alert(helpString);
   }
-
-  // END OF TODOS
 
   render() {
     const {editorState} = this.state;
