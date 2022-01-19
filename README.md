@@ -15,7 +15,7 @@ Download this repository, install prequisites and start building:
 Please refer to the Help & About button on the web app.
 
 ## Connecting to an instance
-This application requires a backend manager in order to functions correctly. A self-setup server is available on aqukinn-email-server, which uses the SendGrid API.
+This application requires a backend manager in order to functions correctly. A self-setup server is available on [aqukinn-email-server](https://github.com/Ph1eu/aqukinn-email-Backend), which uses the SendGrid API.
 
 ## Contribution
 Supports, issues and help are welcome, provided that you follow the [Code Of Conduct](https://github.com/rashlight/aqukinn-email/blob/main/CODE_OF_CONDUCT.md).
